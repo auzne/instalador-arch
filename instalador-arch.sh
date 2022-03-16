@@ -19,3 +19,11 @@ timedatectl set-ntp true
 clear
 fdisk -l
 
+# formatando as partições
+mkfs.ext4 /dev/sda2
+mkswap /dev/sda1
+
+# montando as partições
+mount /dev/sda2 /mnt
+swapon /dev/sda1
+
