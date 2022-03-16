@@ -42,6 +42,6 @@ arch-chroot /mnt /bin/bash -c "su - -c ./chroot.sh"
 # desmonta os discos
 umount -R /mnt
 
-# reinicia o computador
-reboot
+# desliga o computador
+poweroff
 
