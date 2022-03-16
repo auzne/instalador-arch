@@ -5,7 +5,6 @@ ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 
 # locale br
-#sed -i 's/en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/#pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 
@@ -19,10 +18,22 @@ echo '127.0.0.1	localhost.localdomain	localhost' >> /etc/hosts
 echo '::1		localhost.localdomain	localhost'  >> /etc/hosts
 echo '127.0.1.1	instalador.localdomain	instalador' >> /etc/hosts
 
+# ativa o systemd-networkd
+systemctl enable systemd-networkd
+
 clear
 # troca senha do root
 echo "Digite a senha do root"
 passwd
+
+# instala o pacote do grub
+pacman -Sy --noconfirm grub
+
+# instala o grub no sda
+grub-install --target=i386-pc /dev/sda
+
+# configura o grub
+grub-mkconfig -o /boot/grub/grub.cfg
 
 # sai do chroot
 exit

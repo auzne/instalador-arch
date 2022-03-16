@@ -2,8 +2,9 @@
 
 comando para executar o script
 ```
-# yes | pacman -Sy git
+# pacman -Sy --noconfirm git
 # git clone https://github.com/auzne/instalador-arch.git
 # cd instalador-arch
 # ./instalar.sh
 ```
+

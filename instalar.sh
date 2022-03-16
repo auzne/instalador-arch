@@ -16,7 +16,6 @@ timedatectl set-timezone America/Sao_Paulo
 
 # particionando o disco
 (echo n; echo p; echo ""; echo ""; echo "+1G"; echo t; echo 82; echo n; echo p; echo ""; echo ""; echo ""; echo w;) | fdisk /dev/sda
-clear
 fdisk -l
 
 # formatando as partições
@@ -28,7 +27,7 @@ mount /dev/sda2 /mnt
 swapon /dev/sda1
 
 # instalação dos pacotes basicos
-pacstrap /mnt base linux linux-firmware nano man wget dhcpcd
+pacstrap /mnt base linux linux-firmware nano man git
 
 # gerando o arquivo fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -37,7 +36,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cp /root/instalador-arch/chroot.sh /mnt
 
 # mudando a raiz
-arch-chroot /mnt /bin/bash -c "./chroot.sh"
+arch-chroot /mnt /bin/bash -c "su - -c ./chroot.sh"
 
 # quando o chroot finalizar
 # desmonta os discos
