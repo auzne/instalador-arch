@@ -34,8 +34,15 @@ pacstrap /mnt base linux linux-firmware nano man wget dhcpcd
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # copia o arquivo do instalador pós chroot para o /mnt
-cp /root/instalador-arch/arquivos/chroot.sh /mnt
+cp /root/instalador-arch/chroot.sh /mnt
 
 # mudando a raiz
-arch-chroot /mnt
+arch-chroot /mnt /bin/bash -c "./chroot.sh"
+
+# quando o chroot finalizar
+# desmonta os discos
+umount -R /mnt
+
+# reinicia o computador
+reboot
 
