@@ -14,3 +14,7 @@ locale-gen
 
 timedatectl set-ntp true
 
+# particionando e formatando o disco
+(echo n; echo p; echo ""; echo ""; echo +1G; echo t; echo 82; echo n; echo ""; echo ""; echo ""; echo w;) | fdisk /dev/sda
+fdisk -l
+
