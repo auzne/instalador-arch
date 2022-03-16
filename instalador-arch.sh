@@ -9,7 +9,7 @@ loadkeys br-abnt2
 # locale br
 echo "Gerando o Locale pt-br"
 sed -i 's/en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g' /etc/locale.gen
-echo "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
+sed -i 's/#pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 
 timedatectl set-ntp true
