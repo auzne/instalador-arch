@@ -33,8 +33,8 @@ pacstrap /mnt base linux linux-firmware nano man wget dhcpcd
 # gerando o arquivo fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# copia o arquivo do instalador pós chroot para o qmnt
-cp /root/instalador-arch/instalador-chroot.sh /mnt
+# copia o arquivo do instalador pós chroot para o /mnt
+cp /root/instalador-arch/arquivos/chroot.sh /mnt
 
 # mudando a raiz
 arch-chroot /mnt
