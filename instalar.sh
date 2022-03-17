@@ -16,7 +16,6 @@ timedatectl set-timezone America/Sao_Paulo
 
 # particionando o disco
 (echo n; echo p; echo ""; echo ""; echo "+1G"; echo t; echo 82; echo n; echo p; echo ""; echo ""; echo ""; echo w;) | fdisk /dev/sda
-fdisk -l
 
 # formatando as partições
 mkfs.ext4 /dev/sda2
@@ -27,7 +26,7 @@ mount /dev/sda2 /mnt
 swapon /dev/sda1
 
 # instalação dos pacotes basicos
-pacstrap /mnt base linux linux-firmware nano man git
+pacstrap /mnt base linux linux-firmware nano man git networkmanager
 
 # gerando o arquivo fstab
 genfstab -U /mnt >> /mnt/etc/fstab

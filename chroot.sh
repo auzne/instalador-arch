@@ -18,8 +18,8 @@ echo '127.0.0.1	localhost.localdomain	localhost' >> /etc/hosts
 echo '::1		localhost.localdomain	localhost'  >> /etc/hosts
 echo '127.0.1.1	instalador.localdomain	instalador' >> /etc/hosts
 
-# ativa o systemd-networkd
-systemctl enable systemd-networkd
+# ativa o networkmanager
+systemctl enable NetworkManager
 
 clear
 # troca senha do root
