@@ -36,7 +36,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cp /root/instalador-arch/chroot.sh /mnt
 
 # mudando a raiz
-arch-chroot /mnt /bin/bash -c "su - -c ./chroot.sh"
+arch-chroot /mnt /bin/bash -c "chmod +x ./chroot.sh; ./chroot.sh"
 
 # quando o chroot finalizar
 # desmonta os discos
