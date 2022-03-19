@@ -37,4 +37,3 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # sai do chroot
 exit
-
