@@ -27,7 +27,7 @@ echo "Digite a senha do root"
 passwd
 
 # instala o pacote do grub
-pacman -Sy --noconfirm grub
+pacman -Sy --noconfirm grub efibootmgr
 
 # instala o grub no sda
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
