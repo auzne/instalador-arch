@@ -3,19 +3,24 @@
 # carrega o teclado br
 loadkeys br-abnt2
 
-echo "O disco /dev/sda será formatado para a instalação do arch linux"
-echo "A instalação requer conexão com a internet"
-echo "Continuar? [S/n]"
-read start
-
-if [ $start = "S" ] || [ $start = "s" ]
+if [ -b /dev/sda ]
 then
-    if [ -d /sys/firmware/efi/efivars ]
+    echo "O disco /dev/sda será formatado para a instalação do arch linux"
+    echo "A instalação requer conexão com a internet"
+    echo "Continuar? [S/n]"
+    read start
+
+    if [ $start = "S" ] || [ $start = "s" ]
     then
-        ./uefi/instalar-uefi.sh
+        if [ -d /sys/firmware/efi/efivars ]
+        then
+            ./uefi/instalar-uefi.sh
+        else
+            ./bios/instalar-bios.sh
+        fi
     else
-        ./bios/instalar-bios.sh
+        echo "Cancelando instalação"
     fi
 else
-    echo "Cancelando instalação"
+    echo "O disco /dev/sda não foi encontrado"
 fi

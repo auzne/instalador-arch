@@ -37,6 +37,9 @@ cp /root/instalador-arch/bios/chroot-bios.sh /mnt/chroot.sh
 arch-chroot /mnt /bin/bash -c "chmod +x ./chroot.sh; ./chroot.sh"
 
 # quando o chroot finalizar
+# apaga o arquivo de instalação
+rm /mnt/chroot.sh
+
 # desmonta os discos
 umount -R /mnt
 
