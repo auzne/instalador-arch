@@ -12,9 +12,9 @@ if [ $start = "S" ] || [ $start = "s" ]
 then
     if [ -d /sys/firmware/efi/efivars ]
     then
-        ./uefi/instalar.sh
+        ./uefi/instalar-uefi.sh
     else
-        ./bios/instalar.sh
+        ./bios/instalar-bios.sh
     fi
 else
     echo "Cancelando instalação"
