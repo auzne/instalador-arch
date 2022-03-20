@@ -10,7 +10,6 @@ timedatectl set-ntp true
 timedatectl set-timezone America/Sao_Paulo
 
 # particionando o disco
-#(echo n; echo p; echo ""; echo ""; echo "+1G"; echo t; echo 82; echo n; echo p; echo ""; echo ""; echo ""; echo w;) | fdisk /dev/sda
 (
     echo n; echo ""; echo ""; echo "+300M"; echo "EF00";
     echo n; echo ""; echo ""; echo "+1G"; echo "8200";
@@ -47,6 +46,11 @@ rm /mnt/chroot.sh
 
 # desmonta os discos
 umount -R /mnt
+
+clear
+# informa o usuário
+echo "Para utilizar seu sistema, remova a mídia de instalação e ligue novamente o computador"
+read -t 30 -n 1 -s -r -p "Pressione qualquer tecla para continuar"
 
 # desliga o computador
 poweroff
