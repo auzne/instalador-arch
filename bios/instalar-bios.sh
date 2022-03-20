@@ -25,7 +25,7 @@ mount /dev/sda2 /mnt
 swapon /dev/sda1
 
 # instalação dos pacotes basicos
-pacstrap /mnt base linux linux-firmware nano man git networkmanager
+pacstrap /mnt base linux linux-firmware nano man git sudo networkmanager
 
 # gerando o arquivo fstab
 genfstab -U /mnt >> /mnt/etc/fstab
