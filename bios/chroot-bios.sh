@@ -35,5 +35,6 @@ grub-install --target=i386-pc /dev/sda
 # configura o grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# sai do chroot
-exit
+# espaço para o usuario configurar o sistema antes do reinicio como desejar
+alias clear='clear; echo "A instalação está concluida, basta escrever `exit` para o computador desligar"; echo "Não se esqueça de remover a mídia de instalção antes de ligar o computador novamente";'
+clear

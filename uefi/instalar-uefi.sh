@@ -47,10 +47,5 @@ rm /mnt/chroot.sh
 # desmonta os discos
 umount -R /mnt
 
-clear
-# informa o usuário
-echo "Para utilizar seu sistema, remova a mídia de instalação e ligue novamente o computador"
-read -t 30 -n 1 -s -r -p "Pressione qualquer tecla para continuar"
-
 # desliga o computador
 poweroff
